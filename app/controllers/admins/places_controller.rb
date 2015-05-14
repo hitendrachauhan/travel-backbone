@@ -1,6 +1,6 @@
-class PlacesController < ApplicationController
+class Admins::PlacesController < ApplicationController
   before_action :set_place, only: [:show, :edit, :update, :destroy]
-
+  layout "admin"
   respond_to :html
 
   def index

@@ -7,6 +7,14 @@ class ApplicationController < ActionController::Base
   before_action :states_list
 
 
+  def after_sign_in_path_for(resource)
+    admins_home_path
+  end
+
+  def after_sign_out_path_for(resource)
+    home_path
+  end
+
   def states_list
     @indian_states = Carmen::Country.named("India").subregions.to_a.collect{ |x| x.name }
   end

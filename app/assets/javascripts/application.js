@@ -14,6 +14,11 @@
 //= require jquery_ujs
 //= require twitter/bootstrap
 //= require turbolinks
+//= require underscore
+//= require backbone
+//= require backbone_rails_sync
+//= require backbone_datalink
+//= require backbone/travel_backbone
 //= require_tree .
 
 
@@ -22,4 +27,14 @@ $(document).ready(function () {
   $('[data-toggle="offcanvas"]').click(function () {
     $('.row-offcanvas').toggleClass('active')
   });
+});
+
+$(document).on('click', '.list-group a', function() {
+  $(".list-group a").removeClass("active");
+  $(this).addClass("active");
+});
+
+$('.navbar-nav li').on('click', function() {
+  $(".navbar-nav li").removeClass("active");
+  $(this).addClass("active");
 });
