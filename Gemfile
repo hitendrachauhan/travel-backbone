@@ -36,10 +36,12 @@ gem 'spring',        group: :development
 # gem 'capistrano-rails', group: :development
 
 # Use debugger
-gem 'debugger', group: [:development, :test]
+# gem 'debugger', group: [:development, :test]
 
 gem 'devise'
 
 gem "less-rails" #Sprockets (what Rails 3.1 uses for its asset pipeline) supports LESS
 gem "twitter-bootstrap-rails"
 gem "rails-backbone"
+
+gem 'carmen'

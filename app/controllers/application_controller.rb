@@ -4,4 +4,10 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
   layout "home"
+  before_action :states_list
+
+
+  def states_list
+    @indian_states = Carmen::Country.named("India").subregions.to_a.collect{ |x| x.name }
+  end
 end
