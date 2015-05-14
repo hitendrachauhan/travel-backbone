@@ -69,10 +69,13 @@
           <div class="col-xs-6 col-sm-3 sidebar-offcanvas" id="sidebar">
             <div class="list-group panel">
               <% @indian_states.each_with_index do |state, index| %>
-                <% id = "state_#{state.downcase.gsub(' ', '_')}" %>
-                <%= link_to "#{state}", "##{id}" , class: "list-group-item #{(index == 0) ?  'active' : ''}", data: {toggle: "collapse", parent: "#sidebar" } %>
+
+                <% id = "state_#{state.name.downcase.gsub(' ', '_')}" %>
+                <%= link_to "#{state.name}", "##{id}" , class: "list-group-item #{(index == 0) ?  'active' : ''}", data: {toggle: "collapse", parent: "#sidebar" } %>
                 <div class="collapse" id=<%= id %>>
-                  <a href="" class="list-group-item">Subitem 1</a>
+                  <% state.districts.each do |district| %>
+                    <a href="" class="list-group-item"><%= district.name %></a>
+                  <% end %>
                   <a href="" class="list-group-item">Subitem 2</a>
                   <a href="" class="list-group-item">Subitem 3</a>
                 </div>

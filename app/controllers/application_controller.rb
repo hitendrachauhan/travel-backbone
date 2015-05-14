@@ -16,6 +16,6 @@ class ApplicationController < ActionController::Base
   end
 
   def states_list
-    @indian_states = Carmen::Country.named("India").subregions.to_a.collect{ |x| x.name }
+    @indian_states = State.all
   end
 end

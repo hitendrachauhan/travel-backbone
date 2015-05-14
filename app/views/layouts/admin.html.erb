@@ -78,7 +78,9 @@
                 <% id = "state_#{state.downcase.gsub(' ', '_')}" %>
                 <%= link_to "#{state}", "##{id}" , class: "list-group-item #{(index == 0) ?  'active' : ''}", data: {toggle: "collapse", parent: "#sidebar" } %>
                 <div class="collapse" id=<%= id %>>
-                  <a href="" class="list-group-item">Subitem 1</a>
+                  <% state.districts.each do |district| %>
+                    <a href="" class="list-group-item"><%= district.name %></a>
+                  <% end %>
                   <a href="" class="list-group-item">Subitem 2</a>
                   <a href="" class="list-group-item">Subitem 3</a>
                 </div>
