@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
   
+  resources :districts
+
   devise_for :admins
   
   namespace :admins do
@@ -7,7 +9,7 @@ Rails.application.routes.draw do
     resources :places
   end
 
-  scope 'admins' do
+  scope 'api' do
     resources :districts
   end 
 

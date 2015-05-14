@@ -16,5 +16,5 @@ class TravelBackbone.Views.Districts.DistrictView extends Backbone.View
     return false
 
   render: ->
-    @$el.html(@template(@model.toJSON() ))
+    @$el.html(@template(@options.model.toJSON() ))
     return this

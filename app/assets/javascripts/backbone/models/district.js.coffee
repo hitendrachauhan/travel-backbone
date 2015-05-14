@@ -5,7 +5,8 @@ class TravelBackbone.Models.District extends Backbone.Model
     name: null
     description: null
     code: null
+    state_id: null
 
 class TravelBackbone.Collections.DistrictsCollection extends Backbone.Collection
   model: TravelBackbone.Models.District
-  url: '/admins/districts'
+  url: '/api/districts'

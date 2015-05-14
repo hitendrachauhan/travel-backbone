@@ -1,25 +1,30 @@
 <h1>New district</h1>
 
 <form id="new-district" name="district">
-  <div class="field">
-    <label for="name"> name:</label>
-    <input type="text" name="name" id="name" value="<%= name %>" >
+  <div class="control-group">
+    <label for="name" class="control-label"> Name:</label>
+    <div class="controls">
+      <input type="text" name="name" id="name" value="<%= name %>" class="form-control">
+    </div>  
   </div>
-
-  <div class="field">
-    <label for="description"> description:</label>
-    <input type="text" name="description" id="description" value="<%= description %>" >
+  <div class="control-group">
+    <label for="description" class="control-label"> Description:</label>
+    <div class="controls">
+      <input type="text" name="description" id="description" value="<%= description %>" class="form-control">
+    </div>
   </div>
-
-  <div class="field">
-    <label for="code"> code:</label>
-    <input type="text" name="code" id="code" value="<%= code %>" >
+  <div class="control-group">
+    <label for="code" class='control-label'>Code:</label>
+    <div class="controls">
+      <input type="text" name="code" id="code" value="<%= code %>" class="form-control">
+    </div>
   </div>
-
-  <div class="actions">
-    <input type="submit" value="Create District" />
+  <br/>
+  <div class="control-group">
+    <div class="controls">
+      <input type="submit" class="btn btn-primary" value="Create District" />
+      <a href="#" class="btn btn-default">Cancel</a>
+    </div>
   </div>
 
 </form>
-
-<a href="#/index">Back</a>
