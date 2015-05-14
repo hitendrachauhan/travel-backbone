@@ -45,3 +45,5 @@ gem "twitter-bootstrap-rails"
 gem "rails-backbone"
 
 gem 'carmen'
+gem 'carrierwave' 
+gem 'rmagick', '2.13.2'
