@@ -17,12 +17,7 @@ class TravelBackbone.Routers.StatesRouter extends Backbone.Router
     $("#states").html(@view.render().el)
 
   show: (id) ->
-    console.log []
-    console.log @state
     state = @states.get(id)
 
     @view = new TravelBackbone.Views.States.ShowView(model: state)
     $("#states").html(@view.render().el)
-
-  showDetails: (id) ->
-    alert "Hi"

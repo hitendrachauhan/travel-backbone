@@ -8,12 +8,11 @@ class TravelBackbone.Views.States.IndexView extends Backbone.View
 
   addAll: () =>
     @options.states.each(@addOne)
-    $($(".panel a")[0]).addClass("active")
 
   addOne: (state) =>
     view = new TravelBackbone.Views.States.StateView({model : state})
 
-    @$(".list-group").append(view.render().el)
+    @$("tbody").append(view.render().el)
 
   render: =>
     @$el.html(@template(states: @options.states.toJSON() ))

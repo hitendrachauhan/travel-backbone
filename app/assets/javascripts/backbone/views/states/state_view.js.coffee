@@ -6,9 +6,7 @@ class TravelBackbone.Views.States.StateView extends Backbone.View
   events:
     "click .destroy" : "destroy"
 
-  tagName: "a"
-  className: "list-group-item"
-
+  tagName: "tr"
 
   destroy: () ->
     if confirm("Are You Sure?")
