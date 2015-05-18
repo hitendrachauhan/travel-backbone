@@ -18,6 +18,8 @@ class TravelBackbone.Routers.HomeRouter extends Backbone.Router
     "districts": "districts"
     "states" : "states"
     "places" : "places"
+    "newDistrict" : "newDistrict"
+    "newPlace" : "newPlace"
 
   districts: ->
     @view = new TravelBackbone.Views.Districts.IndexView(districts: @districts)
@@ -31,3 +33,11 @@ class TravelBackbone.Routers.HomeRouter extends Backbone.Router
     @view = new TravelBackbone.Views.Places.IndexView(places: @places)
     $("#content").html(@view.render().el)
 
+  newDistrict: ->
+    @view = new TravelBackbone.Views.Districts.NewView(collection: @districts)
+    $("#new-district").html(@view.render().el)
+
+
+  newPlace: ->
+    @view = new TravelBackbone.Views.Places.NewView(collection: @places)
+    $("#new-place").html(@view.render().el)

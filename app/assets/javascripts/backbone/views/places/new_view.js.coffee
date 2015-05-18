@@ -17,29 +17,22 @@ class TravelBackbone.Views.Places.NewView extends Backbone.View
 
 
   save: (e) ->
+    e.preventDefault()
+    e.stopPropagation()
 
-    values = {}
-    if e
-      e.preventDefault()
-      e.stopPropagation()
-    
-    _.each @$('form').serializeArray(), (input) ->
-      values[input.name] = input.value
-      return
-    @model.save(values,
-      iframe: true
-      files: @$('form :image')
-      data: values
+    @model.unset("errors")
 
+    @collection.create(@model.toJSON(),
       success: (place) =>
         @model = place
         @places = new TravelBackbone.Collections.PlacesCollection()
         @places.fetch()
-        window.location.hash = "#index"
+        window.location.hash = "#/places"
 
       error: (place, jqXHR) =>
         @model.set({errors: $.parseJSON(jqXHR.responseText)})
     )
+
 
   render: ->
     @$el.html(@template(@model.toJSON() ))

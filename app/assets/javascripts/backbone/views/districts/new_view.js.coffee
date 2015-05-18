@@ -25,7 +25,7 @@ class TravelBackbone.Views.Districts.NewView extends Backbone.View
         @model = district
         @districts = new TravelBackbone.Collections.DistrictsCollection()
         @districts.fetch()
-        window.location.hash = "#index"
+        window.location.hash = "#/districts"
 
       error: (district, jqXHR) =>
         @model.set({errors: $.parseJSON(jqXHR.responseText)})
