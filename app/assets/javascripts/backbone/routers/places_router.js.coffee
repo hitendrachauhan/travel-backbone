@@ -1,6 +1,7 @@
 class TravelBackbone.Routers.PlacesRouter extends Backbone.Router
   initialize: (options) ->
     @places = new TravelBackbone.Collections.PlacesCollection()
+    @places.fetch()
     @places.reset options.places
 
   routes:

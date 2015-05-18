@@ -23,7 +23,9 @@ class TravelBackbone.Views.Places.NewView extends Backbone.View
     @collection.create(@model.toJSON(),
       success: (place) =>
         @model = place
-        window.location.hash = "/#{@model.id}"
+        @places = new TravelBackbone.Collections.PlacesCollection()
+        @places.fetch()
+        window.location.hash = "#index"
 
       error: (place, jqXHR) =>
         @model.set({errors: $.parseJSON(jqXHR.responseText)})

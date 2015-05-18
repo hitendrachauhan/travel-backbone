@@ -8,9 +8,11 @@ class Admins::PlacesController < ApplicationController
   end
 
   def show
+    respond_with(@place)
   end
 
   def new
+    @states = State.all
     @place = Place.new
   end
 
@@ -19,17 +21,35 @@ class Admins::PlacesController < ApplicationController
 
   def create
     @place = Place.new(place_params)
-    @place.save
+    respond_to do |format|
+      if @place.save
+        #format.html { redirect_to admins_places_path, notice: 'place was successfully created.' }
+        format.json { render :show, status: :created, location: admins_places_path }
+      else
+        format.html { render :new }
+        format.json { render json: @place.errors, status: :unprocessable_entity }
+      end
+    end
   end
 
   def update
-    @place.update(place_params)
-    respond_with(@place)
+    respond_to do |format|
+      if @place.update(place_params)
+        format.html { redirect_to admins_places_path, notice: 'Place was successfully updated.' }
+        format.json { render :show, status: :ok, location: admins_places_path }
+      else
+        format.html { render :edit }
+        format.json { render json: @place.errors, status: :unprocessable_entity }
+      end
+    end
   end
 
   def destroy
     @place.destroy
-    respond_with(@place)
+    respond_to do |format|
+      format.html { redirect_to admins_places_path, notice: 'Place was successfully destroyed.' }
+      format.json { head :no_content }
+    end
   end
 
   private
@@ -38,6 +58,6 @@ class Admins::PlacesController < ApplicationController
     end
 
     def place_params
-      params.require(:place).permit(:name, :description, :image)
+      params.require(:place).permit(:name, :description, :image, :state_id, :code, :id)
     end
 end

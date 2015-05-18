@@ -47,7 +47,7 @@ class Admins::DistrictsController < ApplicationController
   def destroy
     @district.destroy
     respond_to do |format|
-      format.html { redirect_to products_url, notice: 'Product was successfully destroyed.' }
+      format.html { redirect_to @district, notice: 'District was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
