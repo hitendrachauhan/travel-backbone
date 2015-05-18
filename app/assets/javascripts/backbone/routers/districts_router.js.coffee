@@ -16,8 +16,12 @@ class TravelBackbone.Routers.DistrictsRouter extends Backbone.Router
     "districts": "index"
 
   newDistrict: ->
+  
     @view = new TravelBackbone.Views.Districts.NewView(collection: @districts)
     $("#new-district").html(@view.render().el)
+
+    @places = new TravelBackbone.Views.Places.NewView(collection: @places)
+    $("#new-place").html(@places.render().el)
 
   index: ->
     @view = new TravelBackbone.Views.Districts.IndexView(districts: @districts)

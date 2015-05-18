@@ -1,28 +1,40 @@
 <h1>Edit place</h1>
 
 <form id="edit-place" name="place">
-  <div class="field">
-    <label for="name"> name:</label>
-    <input type="text" name="name" id="name" value="<%= name %>" >
+  <div class="control-group">
+    <label for="name" class="control-label"> Name:</label>
+    <div class="controls">
+      <input type="text" name="name" id="name" value="<%= name %>" class="form-control">
+    </div>  
   </div>
 
-  <div class="field">
-    <label for="description"> description:</label>
-    <input type="text" name="description" id="description" value="<%= description %>" >
+  <div class="control-group">
+    <label for="description" class="control-label"> Description:</label>
+    <div class="controls">
+      <input type="text" name="description" id="description" value="<%= description %>" class="form-control">
+    </div>
   </div>
 
-  <div class="field">
-    <label for="district_id"> district_id:</label>
-    <input type="text" name="district_id" id="district_id" value="<%= district_id %>" >
+  <div class="control-group">
+    <label for="district_id" class="control-label"> District_id:</label>
+    <div class="controls">
+      <input type="text" name="district_id" id="district_id" value="<%= district_id %>" class="form-control">
+    </div>
   </div>
 
-  <div class="field">
-    <label for="code"> code:</label>
-    <input type="text" name="code" id="code" value="<%= code %>" >
+  <div class="control-group">
+    <label for="code" class="control-label"> Code:</label>
+    <div class="controls">
+      <input type="text" name="code" id="code" value="<%= code %>" class="form-control">
+    </div>
   </div>
 
-  <div class="actions">
-    <input type="submit" value="Update Place" />
+  <br/>
+  <div class="control-group">
+    <div class="controls">
+      <input type="submit" class="btn btn-primary" value="Update Place" />
+      <a href="#" class="btn btn-default">Cancel</a>
+    </div>
   </div>
 
 </form>

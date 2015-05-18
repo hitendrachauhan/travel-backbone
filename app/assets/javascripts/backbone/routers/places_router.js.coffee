@@ -13,7 +13,7 @@ class TravelBackbone.Routers.PlacesRouter extends Backbone.Router
 
   newPlace: ->
     @view = new TravelBackbone.Views.Places.NewView(collection: @places)
-    $("#places").html(@view.render().el)
+    $("#new-place").html(@view.render().el)
 
   index: ->
     @view = new TravelBackbone.Views.Places.IndexView(places: @places)

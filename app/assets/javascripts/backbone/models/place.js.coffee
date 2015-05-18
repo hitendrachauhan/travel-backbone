@@ -7,6 +7,9 @@ class TravelBackbone.Models.Place extends Backbone.Model
     code: null
     state_id: null
 
+  state: ->
+    @get('state_id')
+    
 class TravelBackbone.Collections.PlacesCollection extends Backbone.Collection
   model: TravelBackbone.Models.Place
   url: '/admins/places'
