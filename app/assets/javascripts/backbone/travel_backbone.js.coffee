@@ -10,7 +10,9 @@ window.TravelBackbone =
   Routers: {}
   Views: {}
   init: ->
-    new TravelBackbone.Routers.DistrictsRouter(districts: @districts)
+    new TravelBackbone.Routers.StatesRouter(states: @states)
+    new TravelBackbone.Routers.DistrictsRouter(districts: [])
+    new TravelBackbone.Routers.PlacesRouter(places: [])
     Backbone.history.start()
 
 $(document).ready ->

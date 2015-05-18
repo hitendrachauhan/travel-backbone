@@ -5,13 +5,15 @@ Rails.application.routes.draw do
   devise_for :admins
   
   namespace :admins do
-    get "home" => "home#index"
+    get "/" => "home#index"
     resources :places
+    resources :districts
+    resources :states
   end
 
   scope 'api' do
     resources :districts
-  end 
+  end
 
   root 'home#index'
 end

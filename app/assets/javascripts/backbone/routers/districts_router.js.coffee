@@ -11,6 +11,7 @@ class TravelBackbone.Routers.DistrictsRouter extends Backbone.Router
     ":id/edit" : "edit"
     ":id"      : "show"
     ".*"       : "index"
+    "districts": "index"
 
   newDistrict: ->
     @view = new TravelBackbone.Views.Districts.NewView(collection: @districts)
@@ -31,3 +32,8 @@ class TravelBackbone.Routers.DistrictsRouter extends Backbone.Router
 
     @view = new TravelBackbone.Views.Districts.EditView(model: district)
     $("#districts").html(@view.render().el)
+
+  list: (id) ->
+    @districts = new TravelBackbone.Collections.DistrictsCollection()
+    @districts.fetch()
+    @district = @districts.get(id)

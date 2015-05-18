@@ -5,16 +5,13 @@ class Admins::PlacesController < ApplicationController
 
   def index
     @places = Place.all
-    respond_with(@places)
   end
 
   def show
-    respond_with(@place)
   end
 
   def new
     @place = Place.new
-    respond_with(@place)
   end
 
   def edit
@@ -23,7 +20,6 @@ class Admins::PlacesController < ApplicationController
   def create
     @place = Place.new(place_params)
     @place.save
-    respond_with(@place)
   end
 
   def update

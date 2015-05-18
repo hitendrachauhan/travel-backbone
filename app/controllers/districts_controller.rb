@@ -18,15 +18,35 @@ class DistrictsController < ApplicationController
 
   def create
     @district = District.new(district_params)
-    @district.save
+    respond_to do |format|
+      if @district.save
+        format.html { redirect_to @district, notice: 'District was successfully created.' }
+        format.json { render :show, status: :created, location: @district }
+      else
+        format.html { render :new }
+        format.json { render json: @district.errors, status: :unprocessable_entity }
+      end
+    end
   end
 
   def update
-    @district.update(district_params)
+    respond_to do |format|
+      if @district.update(district_params)
+        format.html { redirect_to @district, notice: 'District was successfully updated.' }
+        format.json { render :show, status: :ok, location: @district }
+      else
+        format.html { render :edit }
+        format.json { render json: @district.errors, status: :unprocessable_entity }
+      end
+    end
   end
 
   def destroy
     @district.destroy
+    respond_to do |format|
+      format.html { redirect_to products_url, notice: 'Product was successfully destroyed.' }
+      format.json { head :no_content }
+    end
   end
 
   private
