@@ -6,6 +6,7 @@ class TravelBackbone.Models.Place extends Backbone.Model
     description: null
     code: null
     state_id: null
+    image: null
 
   state: ->
     @get('state_id')

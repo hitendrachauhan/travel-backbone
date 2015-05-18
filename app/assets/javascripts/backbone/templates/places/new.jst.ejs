@@ -1,6 +1,6 @@
 <h1>New place</h1>
 
-<form id="new-place" name="place">
+<form id="new-place" name="place" enctype="multipart/form-data">
   <div class="control-group">
     <label for="name" class="control-label"> Name:</label>
     <div class="controls">
@@ -28,6 +28,14 @@
       <input type="text" name="code" id="code" value="<%= code %>" class="form-control">
     </div>
   </div>
+
+  <div class="control-group">
+    <label for="image" class="control-label"> Image:</label>
+    <div class="controls">
+      <input type="file" name="image" id="image" class="form-control">
+    </div>
+  </div>
+
 
   <br/>
   <div class="control-group">
