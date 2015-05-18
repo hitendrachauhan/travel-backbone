@@ -7,9 +7,17 @@ class TravelBackbone.Models.District extends Backbone.Model
     code: null
     state_id: null
 
-  state: ->
-    @get('state_id')
-    
+  stateName: ->
+    id = @get('state_id')
+    states = new TravelBackbone.Collections.StatesCollection()
+    state = states.fetch({id: id})
+    state
+
+  toTemplate: ->
+    j = _(this.attributes).clone()
+    j.stateName = this.stateName()
+    return j;
+
 class TravelBackbone.Collections.DistrictsCollection extends Backbone.Collection
   model: TravelBackbone.Models.District
   url: '/admins/districts'

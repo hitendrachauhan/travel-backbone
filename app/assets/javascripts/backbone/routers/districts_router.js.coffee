@@ -3,8 +3,6 @@ class TravelBackbone.Routers.DistrictsRouter extends Backbone.Router
     @districts = new TravelBackbone.Collections.DistrictsCollection()
     @districts.fetch()
     @districts.reset options.districts
-    @places = new TravelBackbone.Collections.PlacesCollection()
-    @places.reset options.places
 
   routes:
     "new"      : "newDistrict"
@@ -26,9 +24,6 @@ class TravelBackbone.Routers.DistrictsRouter extends Backbone.Router
   index: ->
     @view = new TravelBackbone.Views.Districts.IndexView(districts: @districts)
     $("#districts").html(@view.render().el)
-
-    @places = new TravelBackbone.Views.Places.IndexView(places: @places)
-    $("#places").html(@places.render().el)
 
   show: (id) ->
     district = @districts.get(id)
