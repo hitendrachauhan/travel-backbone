@@ -10,18 +10,17 @@ window.TravelBackbone =
   Routers: {}
   Views: {}
   init: ->
-    controller = window.location.pathname.split('/admins/')[1]
+    controller = window.location.href.split('/admins/')[1]
     if controller != undefined
       if controller == 'states'
         new TravelBackbone.Routers.StatesRouter(states: [])
-      else
       if controller == 'districts'
         new TravelBackbone.Routers.DistrictsRouter(districts: [])
-      else
       if controller == 'places'
         new TravelBackbone.Routers.PlacesRouter(places: [])
-      else
+    else
+      new TravelBackbone.Routers.HomeRouter(states: [], districts: [], places: [])
     Backbone.history.start()
-
+      
 $(document).ready ->
-  TravelBackbone.init()  
+  TravelBackbone.init()

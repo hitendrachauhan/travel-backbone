@@ -6,7 +6,6 @@ class TravelBackbone.Routers.StatesRouter extends Backbone.Router
     
 
   routes:
-    "states"   : "index"
     "index"    : "index"
     "#"        : "index"
     ":id/edit" : "edit"
@@ -24,3 +23,6 @@ class TravelBackbone.Routers.StatesRouter extends Backbone.Router
 
     @view = new TravelBackbone.Views.States.ShowView(model: state)
     $("#states").html(@view.render().el)
+
+  showDetails: (id) ->
+    alert "Hi"

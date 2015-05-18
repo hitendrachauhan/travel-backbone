@@ -5,7 +5,6 @@ class TravelBackbone.Routers.PlacesRouter extends Backbone.Router
     @places.reset options.places
 
   routes:
-    "places"   : "index"
     "new"      : "newPlace"
     "index"    : "index"
     ":id/edit" : "edit"
