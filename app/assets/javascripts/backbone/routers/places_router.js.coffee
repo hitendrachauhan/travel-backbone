@@ -23,10 +23,10 @@ class TravelBackbone.Routers.PlacesRouter extends Backbone.Router
     place = @places.get(id)
 
     @view = new TravelBackbone.Views.Places.ShowView(model: place)
-    $("#places").html(@view.render().el)
+    $("#content").html(@view.render().el)
 
   edit: (id) ->
     place = @places.get(id)
 
     @view = new TravelBackbone.Views.Places.EditView(model: place)
-    $("#places").html(@view.render().el)
+    $("#new-place" + id).html(@view.render().el)
