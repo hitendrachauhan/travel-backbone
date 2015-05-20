@@ -6,9 +6,9 @@ class TravelBackbone.Routers.PlacesRouter extends Backbone.Router
 
   routes:
     "new"      : "newPlace"
-    "index"    : "index"
-    ":id/edit" : "edit"
-    ":id"      : "show"
+    "places"    : "index"
+    "places/:id/edit" : "edit"
+    "places/:id"      : "show"
     ".*"       : "index"
 
   newPlace: ->

@@ -5,9 +5,9 @@ class TravelBackbone.Routers.StatesRouter extends Backbone.Router
 
   routes:
     "new"      : "newState"
-    "index"    : "index"
-    ":id/edit" : "edit"
-    ":id"      : "show"
+    "states"    : "index"
+    "states/:id/edit" : "edit"
+    "states/:id"      : "show"
     ".*"        : "index"
 
   newState: ->

@@ -6,10 +6,10 @@ class TravelBackbone.Routers.DistrictsRouter extends Backbone.Router
 
   routes:
     "new"      : "newDistrict"
-    "index"    : "index"
+    "districts"    : "index"
     "#"        : "index"
-    ":id/edit" : "edit"
-    ":id"      : "show"
+    "districts/:id/edit" : "edit"
+    "districts/:id"      : "show"
     ".*"       : "index"
     "districts": "index"
 
@@ -20,13 +20,13 @@ class TravelBackbone.Routers.DistrictsRouter extends Backbone.Router
 
   index: ->
     @view = new TravelBackbone.Views.Districts.IndexView(districts: @districts)
-    $("#districts").html(@view.render().el)
+    $("#content").html(@view.render().el)
 
   show: (id) ->
     district = @districts.get(id)
 
     @view = new TravelBackbone.Views.Districts.ShowView(model: district)
-    $("#districts").html(@view.render().el)
+    $("#content").html(@view.render().el)
 
   edit: (id) ->
     district = @districts.get(id)
