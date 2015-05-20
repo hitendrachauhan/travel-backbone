@@ -9,13 +9,11 @@ class TravelBackbone.Views.States.StateView extends Backbone.View
   tagName: "tr"
 
   destroy: () ->
-    if confirm("Are You Sure?")
-      @model.destroy()
-      this.remove()
+    @model.destroy()
+    this.remove()
 
     return false
 
   render: ->
-    @$el.html(@options.model.toJSON().name)
+    @$el.html(@template(@model.toJSON() ))
     return this
-

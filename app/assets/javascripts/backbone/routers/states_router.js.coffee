@@ -1,16 +1,18 @@
 class TravelBackbone.Routers.StatesRouter extends Backbone.Router
   initialize: (options) ->
     @states = new TravelBackbone.Collections.StatesCollection()
-    @states.fetch()
     @states.reset options.states
-    
 
   routes:
+    "new"      : "newState"
     "index"    : "index"
-    "#"        : "index"
     ":id/edit" : "edit"
     ":id"      : "show"
-    ".*"       : "index"
+    ".*"        : "index"
+
+  newState: ->
+    @view = new TravelBackbone.Views.States.NewView(collection: @states)
+    $("#states").html(@view.render().el)
 
   index: ->
     @view = new TravelBackbone.Views.States.IndexView(states: @states)
@@ -20,4 +22,10 @@ class TravelBackbone.Routers.StatesRouter extends Backbone.Router
     state = @states.get(id)
 
     @view = new TravelBackbone.Views.States.ShowView(model: state)
+    $("#states").html(@view.render().el)
+
+  edit: (id) ->
+    state = @states.get(id)
+
+    @view = new TravelBackbone.Views.States.EditView(model: state)
     $("#states").html(@view.render().el)

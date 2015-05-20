@@ -9,14 +9,16 @@ class TravelBackbone.Models.District extends Backbone.Model
 
   stateName: ->
     id = @get('state_id')
-    states = new TravelBackbone.Collections.StatesCollection()
-    state = states.fetch({id: id})
-    state
+    @states = new TravelBackbone.Collections.StatesCollection()
+    @states.fetch()
+    state = @states.get(id)
+    console.log state
+    return state
 
   toTemplate: ->
     j = _(this.attributes).clone()
     j.stateName = this.stateName()
-    return j;
+    return j
 
 class TravelBackbone.Collections.DistrictsCollection extends Backbone.Collection
   model: TravelBackbone.Models.District

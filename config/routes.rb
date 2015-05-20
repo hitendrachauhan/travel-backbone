@@ -15,5 +15,5 @@ Rails.application.routes.draw do
     resources :districts
   end
 
-  root 'home#index'
+  root 'admins/home#index'
 end
