@@ -15,7 +15,9 @@ class TravelBackbone.Views.Districts.EditView extends Backbone.View
         @model = district
         @districts = new TravelBackbone.Collections.DistrictsCollection()
         @districts.fetch()
-        window.location.hash = "#index"
+        @view = new TravelBackbone.Views.Districts.IndexView(districts: @districts)
+        $("#content").html(@view.render().el)
+        window.location.hash = "#/districts"
     )
 
   render: ->

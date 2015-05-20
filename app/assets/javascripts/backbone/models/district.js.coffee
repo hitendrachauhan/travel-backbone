@@ -15,7 +15,7 @@ class TravelBackbone.Models.District extends Backbone.Model
     name
       
   toTemplate: ->
-    j = _(this.attributes).clone()
+    j = _(@attributes).clone()
     j.stateName = this.stateName()
     j
 
@@ -41,3 +41,13 @@ class TravelBackbone.Collections.StateCollection extends Backbone.Collection
 
   url: ->
     '/admins/districts/' + @district_id
+
+class TravelBackbone.Collections.PlaceDistrictCollection extends Backbone.Collection
+  model: TravelBackbone.Models.District
+  
+  initialize: (options) ->
+    @district_id = options.district_id
+
+  url: ->
+    '/admins/districts/' + @district_id
+  

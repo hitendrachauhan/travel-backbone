@@ -5,7 +5,7 @@ class Admins::PlacesController < ApplicationController
 
   def index
     if params[:district_id]
-      @place = Place.find(params[:district_id])
+      @district = District.find(params[:district_id])
       @places = @district.places
     else  
       @places = Place.all
