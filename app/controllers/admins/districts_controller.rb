@@ -13,7 +13,7 @@ class Admins::DistrictsController < ApplicationController
   end
 
   def show
-    respond_with(@district)
+    @district = District.find(params[:id])
   end
 
   def new

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150518093819) do
+ActiveRecord::Schema.define(version: 20150520114725) do
 
   create_table "admins", force: true do |t|
     t.string   "email",                  default: "", null: false
@@ -48,6 +48,7 @@ ActiveRecord::Schema.define(version: 20150518093819) do
     t.string   "image"
     t.integer  "state_id"
     t.string   "code"
+    t.integer  "district_id"
   end
 
   create_table "states", force: true do |t|

@@ -22,6 +22,7 @@ class TravelBackbone.Routers.HomeRouter extends Backbone.Router
     "newPlace" : "newPlace"
     "states/:id" : "showState"
     "states/:id/edit" : "editState"
+    "places/:id/edit" : "editPlace"
 
   districts: ->
     @view = new TravelBackbone.Views.Districts.IndexView(districts: @districts)
@@ -54,3 +55,8 @@ class TravelBackbone.Routers.HomeRouter extends Backbone.Router
     state = @states.get(id)
     @view = new TravelBackbone.Views.States.EditView(model: state)
     $("#edit-state-" + id).html(@view.render().el)
+
+  editPlace: (id) ->
+    place = @places.get(id)
+    @view = new TravelBackbone.Views.Places.EditView(model: place)
+    $("#edit-place-" + id).html(@view.render().el)

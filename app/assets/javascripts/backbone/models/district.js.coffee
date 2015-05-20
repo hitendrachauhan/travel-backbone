@@ -31,3 +31,13 @@ class TravelBackbone.Collections.DistrictCollection extends Backbone.Collection
   model: TravelBackbone.Models.District
   url: ->
     '/admins/states/' + @state_id + '/districts'
+
+
+class TravelBackbone.Collections.StateCollection extends Backbone.Collection
+  model: TravelBackbone.Models.District
+  
+  initialize: (options) ->
+    @district_id = options.district_id
+
+  url: ->
+    '/admins/districts/' + @district_id

@@ -7,7 +7,9 @@ Rails.application.routes.draw do
   namespace :admins do
     get "/" => "home#index"
     resources :places
-    resources :districts
+    resources :districts do
+      resources :places
+    end
     
     resources :states do
       resources :districts

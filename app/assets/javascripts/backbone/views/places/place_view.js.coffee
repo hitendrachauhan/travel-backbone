@@ -15,5 +15,5 @@ class TravelBackbone.Views.Places.PlaceView extends Backbone.View
     return false
 
   render: ->
-    @$el.html(@template(@model.toJSON() ))
+    @$el.html(@template(@model.toTemplate() ))
     return this

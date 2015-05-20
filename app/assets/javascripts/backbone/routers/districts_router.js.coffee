@@ -32,7 +32,7 @@ class TravelBackbone.Routers.DistrictsRouter extends Backbone.Router
     district = @districts.get(id)
 
     @view = new TravelBackbone.Views.Districts.EditView(model: district)
-    $("#new-district").html(@view.render().el)
+    $("#new-district-" + id).html(@view.render().el)
 
   list: (id) ->
     @districts = new TravelBackbone.Collections.DistrictsCollection()

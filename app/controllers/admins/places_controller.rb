@@ -4,7 +4,12 @@ class Admins::PlacesController < ApplicationController
   respond_to :html
 
   def index
-    @places = Place.all
+    if params[:district_id]
+      @place = Place.find(params[:district_id])
+      @places = @district.places
+    else  
+      @places = Place.all
+    end 
   end
 
   def show
