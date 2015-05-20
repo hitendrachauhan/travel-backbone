@@ -8,7 +8,10 @@ Rails.application.routes.draw do
     get "/" => "home#index"
     resources :places
     resources :districts
-    resources :states
+    
+    resources :states do
+      resources :districts
+    end
   end
 
   scope 'api' do

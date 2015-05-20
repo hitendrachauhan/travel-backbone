@@ -9,17 +9,25 @@ class TravelBackbone.Models.District extends Backbone.Model
 
   stateName: ->
     id = @get('state_id')
-    @states = new TravelBackbone.Collections.StatesCollection()
-    @states.fetch()
-    state = @states.get(id)
-    console.log state
-    return state
-
+    @state = new TravelBackbone.Collections.StateCollection({state_id: id})
+    @state.fetch({async: false})
+    name = @state.models[0].attributes.name
+    name
+      
   toTemplate: ->
     j = _(this.attributes).clone()
     j.stateName = this.stateName()
-    return j
+    j
 
 class TravelBackbone.Collections.DistrictsCollection extends Backbone.Collection
   model: TravelBackbone.Models.District
   url: '/admins/districts'
+
+
+class TravelBackbone.Collections.DistrictCollection extends Backbone.Collection
+  initialize: (options) ->
+    @state_id = options.id
+
+  model: TravelBackbone.Models.District
+  url: ->
+    '/admins/states/' + @state_id + '/districts'

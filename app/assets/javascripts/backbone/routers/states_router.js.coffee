@@ -28,4 +28,4 @@ class TravelBackbone.Routers.StatesRouter extends Backbone.Router
     state = @states.get(id)
 
     @view = new TravelBackbone.Views.States.EditView(model: state)
-    $("#states").html(@view.render().el)
+    $("#edit-state-" + id).html(@view.render().el)

@@ -81,7 +81,7 @@
           <div class="list-group panel">
             <% @indian_states.each_with_index do |state, index| %>
               <% id = state.id %>
-              <%= link_to "#{state.name}", "/#/states/#{id}" , class: "list-group-item" %>
+              <%= link_to "#{state.name}", "/#/states/#{id}" , class: "list-group-item #{(index == 0) ?  'active' : ''}" %>
               <div class="collapse" id="<%= id %>">
                 <% state.districts.each do |district| %>
                   <%= link_to district.name, "#", class: "list-group-item" %>

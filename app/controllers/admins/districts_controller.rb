@@ -4,7 +4,12 @@ class Admins::DistrictsController < ApplicationController
   layout "admin"
 
   def index
-    @districts = District.all
+    if params[:state_id]
+      @state = State.find(params[:state_id])
+      @districts = @state.districts
+    else  
+      @districts = District.all
+    end
   end
 
   def show
